@@ -27,7 +27,7 @@ function init(){
 	}
 	reset();
 }
-
+// creates the easy or hard mode selection at the top and listens for the mouse click to select the proper mode.
 function setupModeButtons(){
 	for(var i = 0; i < modeButtons.length; i++){
 		modeButtons[i].addEventListener("click", function(){
@@ -39,7 +39,7 @@ function setupModeButtons(){
 		});
 	}
 }
-
+// creates the color squares on the game board and then listens for the mouse clicks on each sqaure accordingly
 function setupSquares(){
 	for(var i = 0; i < squares.length; i++){
 	//add click listeners to squares
@@ -71,7 +71,7 @@ function setupSquares(){
 	}
 }
 
-
+// this function creates the "right" and "wrong" squares to create the game challenge.
 async function updateColorName(){
 	const regex = /\([^\)]+\)/g; 
 	var rgbColors = pickedColor.match(regex); 
@@ -91,7 +91,7 @@ async function updateColorName(){
 		colorDisplay.textContent = colorData.name.value + "-ish"; 
 	}
 }
-
+// this is the "new game" button that restarts a new round or resets the game
 function reset(){
 	resetPressed = true;
 	colors = generateRandomColors(numSquares);
@@ -112,11 +112,11 @@ function reset(){
 	}
 	h1.style.background = "steelblue";
 }
-
+// this is what listens for the click on the new game button
 resetButton.addEventListener("click", function(){
 	reset();
 })
-
+// this is what cycles the colors for each new round
 function changeColors(color){
 	//loop through all squares
 	for(var i = 0; i < squares.length; i++){
